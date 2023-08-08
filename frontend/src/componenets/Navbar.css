@@ -1,0 +1,28 @@
+img{
+    width: 10%;
+    object-fit: contain;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    /* align-items: flex-end; */
+    box-shadow: 1px 5px 5px #e0dcdc;
+}
+
+ul{
+    /* justify-content: space-around; */
+    display: flex;
+    
+}
+li{
+    list-style: none;
+    padding: 1px 10px;
+    
+}
+
+a{
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
