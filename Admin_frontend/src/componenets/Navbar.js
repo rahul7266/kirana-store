@@ -8,7 +8,10 @@ export default function Navbar() {
        <img src={insta_logo} alt="" />
       
       <ul>
-         
+      <Link to="/addproducts">
+          <li>Add Product</li>
+        </Link>
+
         <Link to="/signup">
           <li>SignUp</li>
         </Link>

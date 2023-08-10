@@ -5,6 +5,7 @@ const mongoose = require('mongoose') ;
 const mongoUri = require('./keys') ;
 
 const authRoute = require('./routes/auth') ;
+const productRoute = require('./routes/product') ;
 
 const app = express() ;
 
@@ -31,6 +32,8 @@ app.use(cors()) ;
 app.use(express.json()) ;
 
 app.use(authRoute) ;
+app.use(productRoute) ;
+
 
 
 mongoose.connect(mongoUri) ;
