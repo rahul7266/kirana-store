@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Addproduct.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export default function Addproduct() {
+const navigate = useNavigate() ;
+
   const [image, setimage] = useState("");
   const [url, seturl] = useState("");
   const [productName, setproductName] = useState("");
@@ -10,8 +13,34 @@ export default function Addproduct() {
   const [category, setcategory] = useState("grocery");
   const [countable, setcountable] = useState("countable");
 
+
+  useEffect(() => {
+    if(url){
+      fetch('http://localhost:5000/addproduct',{
+        method:"post",
+        headers:{
+          "authorization":'Bearer '+ localStorage.getItem("jwt"),
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          url,name:productName,price,category,countable
+        })
+      }).then(result=>result.json())
+      .then(data=>{
+        if(data.error){
+          toast.error(data.error) ;
+        }else{
+          toast.success(data.message) ;
+          navigate('/') ;
+        }
+      })
+    }
+   
+  }, [url])
+  
+
   const saveDetails = ()=>{
-    console.log(image,url,productName,price,category,countable) ;
+    // console.log(image,url,productName,price,category,countable) ;
 
     const data = new FormData() ;
     data.append("file",image) ;

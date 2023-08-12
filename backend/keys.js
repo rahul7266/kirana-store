@@ -1,2 +1,3 @@
 const mongoUri = 'mongodb://localhost:27017'
-module.exports = mongoUri ;
+const jwt_key = 'sdjgsgshdfghfdhsjgffdsgd' ;
+module.exports = {mongoUri, jwt_key} ;

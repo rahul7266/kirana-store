@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const {jwt_key} = require('../keys') ;
+const jwt = require('jsonwebtoken') ;
 
 const bcrypt = require("bcrypt");
 
@@ -51,7 +53,11 @@ exports.signIn = (req,res,next) =>{
       if(!match){
         return res.status(422).json({error:"incorrect password."})
       }
-      return res.status(422).json({message:"user signin successfully."})
+
+      const token = jwt.sign({id:saveduser._id},jwt_key) ;
+      console.log(token) ;
+
+      return res.status(422).json({message:"user signin successfully.",token})
     })
 
   })

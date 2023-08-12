@@ -53,6 +53,8 @@ export default function SignIn() {
         }
         else{
           notifyB(data.message) ;
+          localStorage.setItem("jwt",data.token) ;
+          // console.log(localStorage.getItem("jwt")) ;
           navigate('/') ;
         }
         console.log(data)

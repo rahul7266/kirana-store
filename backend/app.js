@@ -2,7 +2,7 @@ const express = require('express') ;
 const cors = require('cors') ;
 
 const mongoose = require('mongoose') ;
-const mongoUri = require('./keys') ;
+const {mongoUri} = require('./keys') ;
 
 const authRoute = require('./routes/auth') ;
 const productRoute = require('./routes/product') ;
